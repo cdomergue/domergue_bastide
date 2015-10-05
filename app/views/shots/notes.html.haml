@@ -1,0 +1,14 @@
+%h1 Liste des notes
+
+%table
+  %thead
+    %tr
+      %th Note
+  - @shots.each do |shot|
+    %tr
+      %td= shot.note
+
+%p
+  Moyenne :
+  %span= @moyenne
+

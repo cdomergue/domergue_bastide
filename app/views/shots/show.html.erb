@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shot.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shot.description %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @shot.note %>
+</p>
+
+<%= link_to 'Edit', edit_shot_path(@shot) %> |
+<%= link_to 'Back', shots_path %>
