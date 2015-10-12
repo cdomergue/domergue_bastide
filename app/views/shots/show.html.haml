@@ -7,8 +7,13 @@
 %p
 %strong Notes:
 %br
-- @shot.notes.each do |note|
-  %span=note.value
+- @shot.shot_geeks.each do |shot_geek|
+  %span=shot_geek.email
+  %span a attribué la note
+  - shot_geek.notes.each do |note|
+    %span=note.value
+
+
   %br
 = link_to 'Edit', edit_shot_path(@shot)
 |

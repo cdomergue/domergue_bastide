@@ -2,6 +2,7 @@ class ShotsController < ApplicationController
   before_action :set_shot, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_shot_geek!,except: [:index, :show]
 
+
   # GET /shots
   # GET /shots.json
   def index
@@ -71,6 +72,6 @@ class ShotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
-      params.require(:shot).permit(:name, :description, :note)
+      params.require(:shot).permit(:name, :description, :notes_attributes => [:value, :id, :shot_geek])
     end
 end

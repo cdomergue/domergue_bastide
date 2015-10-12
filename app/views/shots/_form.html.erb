@@ -19,6 +19,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+    <%= f.fields_for :notes do |notes_form| %>
+        Note: <%= notes_form.text_field :value %>
+        <%= notes_form.hidden_field :shot_geek_id, value: current_shot_geek.id %>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
