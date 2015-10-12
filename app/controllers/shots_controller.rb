@@ -4,8 +4,7 @@ class ShotsController < ApplicationController
   # GET /shots
   # GET /shots.json
   def index
-    n = params[:note_max] || 10
-    @shots = Shot.where(note: 0..n.to_i)
+    @shots = Shot.all
   end
 
   # GET /shots/1
@@ -22,15 +21,6 @@ class ShotsController < ApplicationController
   def edit
   end
 
-  # GET /shots/notes
-  def notes
-    @shots = Shot.all
-    sum = 0
-    @shots.each do |shot|
-      sum += shot.note
-    end
-    @moyenne = sum / @shots.size
-  end
 
   # POST /shots
   # POST /shots.json
