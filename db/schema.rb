@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928084239) do
+ActiveRecord::Schema.define(version: 20151012072548) do
+
+  create_table "breweries", force: true do |t|
+    t.string   "name"
+    t.date     "since"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.integer  "value"
+    t.integer  "shot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["shot_id"], name: "index_notes_on_shot_id"
 
   create_table "shots", force: true do |t|
     t.string   "name"
@@ -19,6 +35,9 @@ ActiveRecord::Schema.define(version: 20150928084239) do
     t.integer  "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brewerie_id"
   end
+
+  add_index "shots", ["brewerie_id"], name: "index_shots_on_brewerie_id"
 
 end
