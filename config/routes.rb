@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
 
+  devise_for :shot_geeks
   get 'shots/notes' => 'shots#notes'
 
   resources :shots
+
+  root 'shots#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
