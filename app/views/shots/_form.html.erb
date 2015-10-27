@@ -21,6 +21,7 @@
   </div>
     <%= f.fields_for :notes do |notes_form| %>
         Note: <%= notes_form.text_field :value %>
+        <%= notes_form.check_box :_destroy %>
         <%= notes_form.hidden_field :shot_geek_id, value: current_shot_geek.id %>
     <% end %>
   <div class="actions">
