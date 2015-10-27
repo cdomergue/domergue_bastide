@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 
 gem 'haml'
 gem 'devise'
+gem 'formtastic'
+gem "cocoon"

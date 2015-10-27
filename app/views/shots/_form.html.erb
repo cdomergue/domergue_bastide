@@ -1,4 +1,4 @@
-<%= form_for(@shot) do |f| %>
+<%= semantic_form_for @shot do |f| %>
   <% if @shot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@shot.errors.count, "error") %> prohibited this shot from being saved:</h2>
@@ -11,20 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-    <%= f.fields_for :notes do |notes_form| %>
-        Note: <%= notes_form.text_field :value %>
-        <%= notes_form.check_box :_destroy %>
-        <%= notes_form.hidden_field :shot_geek_id, value: current_shot_geek.id %>
+    <%= f.inputs do %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.semantic_fields_for :notes do |notes_form| %>
+            Note: <%= notes_form.text_field :value %>
+            <%= notes_form.check_box :_destroy %>
+            <%= notes_form.hidden_field :shot_geek_id, value: current_shot_geek.id %>
+        <% end %>
     <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <%= f.actions do %>
+        <%= f.action :submit, :as => :button %>
+    <% end %>
 <% end %>
